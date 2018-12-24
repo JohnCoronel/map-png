@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    center: {
+      lat:41.0082,lng: 28.9784
+    },
+    markers: [],
+    path:[]
+
+  }
+
+  fetchData = e => {
+    console.log()
+  }
+ componentDidMount() {
+   console.log(this.props.match.params);
+   const map = new window.google.maps.Map(document.getElementById('map'),{
+     center: {
+       lat:41.0082,lng: 28.9784
+     },
+     zoom:8,
+     disableDefaultUI:true
+   })
+ }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div style = {{width:'100vw',height:'100vh'}} id = "map">
+
       </div>
-    );
+    )
   }
 }
+
 
 export default App;
